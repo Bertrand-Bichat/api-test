@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1 class="text-center my-5">Gestion de restaurants par API</h1>
+  <h2 class="text-left">Documentation technique de la V1</h2>
+  <% if current_user  %>
+    <p class="text-left mt-3 font-weight-bold">Votre token d'authentification d'API : <%= current_user.authentication_token %></p>
+  <% end %>
+
+  <p class="my-5">
+    Voir l'index de tous les restaurants :
+    <br>
+    <code>curl -s https://api-test-website.herokuapp.com/api/v1/restaurants | jq</code>
+  </p>
+</div>

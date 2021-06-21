@@ -1,1 +1,2 @@
-Test API on Ruby on Rails webapp
+Manage restaurants via API call (Ruby on Rails) :
+https://api-test-website.herokuapp.com/
