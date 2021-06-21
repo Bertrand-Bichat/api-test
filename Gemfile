@@ -48,6 +48,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 # authentication
 gem 'devise'
 gem 'pundit'
+gem 'simple_token_authentication'
 
 group :development, :test do
   gem 'pry-byebug'
