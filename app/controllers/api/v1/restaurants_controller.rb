@@ -2,7 +2,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   before_action :set_restaurant, only: [:show]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = policy_scope(Restaurant)
   end
 
   def show
@@ -11,6 +11,6 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   private
 
   def set_restaurant
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = authorize policy_scope(Restaurant).find(params[:id])
   end
 end
