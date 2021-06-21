@@ -9,6 +9,17 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   def show
   end
 
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user = current_user
+    authorize @restaurant
+    if @restaurant.save
+      render :show, status: :created
+    else
+      render_error
+    end
+  end
+
   def update
     if @restaurant.update(restaurant_params)
       render :show
@@ -24,7 +35,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address)
+    params.require(:restaurant).permit(:name, :address, :description, :food_type)
   end
 
   def render_error
