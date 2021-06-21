@@ -10,4 +10,54 @@
     <br>
     <code>curl -s https://api-test-website.herokuapp.com/api/v1/restaurants | jq</code>
   </p>
+
+  <p class="my-5">
+    Voir la show du restaurant dont l'id = 1 :
+    <br>
+    <code>curl -s https://api-test-website.herokuapp.com/api/v1/restaurants/1 | jq</code>
+  </p>
+
+  <p class="my-5">
+    Create d'un restaurant :
+    <br>
+    <code>curl -i -X POST                                        \
+      <br>
+       -H 'Content-Type: application/json'              \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       -d '{ "restaurant": { "name": "New name", "address": "New address", "description": "New description", "food_type": "New food_type" } }'    \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/restaurants</code>
+  </p>
+
+  <p class="my-5">
+    Update du restaurant que vous avez créé et dont l'id = 1 :
+    <br>
+    <code>curl -i -X PATCH                                        \
+      <br>
+       -H 'Content-Type: application/json'              \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       -d '{ "restaurant": { "name": "New name", "address": "New address", "description": "New description", "food_type": "New food_type" } }'    \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/restaurants/1</code>
+  </p>
+
+  <p class="my-5">
+    Destroy du restaurant que vous avez créé et dont l'id = 1 :
+    <br>
+    <code>curl -i -X DELETE                                        \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/restaurants/1</code>
+  </p>
 </div>
