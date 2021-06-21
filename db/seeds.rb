@@ -1,7 +1,35 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+
+puts 'cleaning database'
+
+
+Comment.destroy_all
+Restaurant.destroy_all
+
+
+puts 'generating restaurants and their comments'
+
+
+
+(1..10).each do |id|
+
+  restaurant = Restaurant.create({
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address,
+    food_type: Faker::Restaurant.type,
+    description: Faker::Restaurant.description
+  })
+
+  (1..5).each do |id|
+    Comment.create({
+      restaurant_id: restaurant.id,
+      content: Faker::Restaurant.review,
+      rating: Faker::Number.between(from: 1, to: 5)
+    })
+  end
+
+end
+
+
+puts "Done!"
