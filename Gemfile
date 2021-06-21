@@ -45,6 +45,10 @@ gem 'simple_form'
 # seeds
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+# authentication
+gem 'devise'
+gem 'pundit'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
