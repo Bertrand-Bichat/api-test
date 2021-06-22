@@ -28,7 +28,7 @@
   <p class="my-5">
     Voir l'index de tous les restaurants que vous avez créé :
     <br>
-    <code>curl -i -X GET
+    <code>curl -s GET
       <br>
        -H 'Content-Type: application/json'              \
        <br>
@@ -36,7 +36,7 @@
        <br>
        -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
        <br>
-       https://api-test-website.herokuapp.com/api/v1/my-restaurants</code>
+       https://api-test-website.herokuapp.com/api/v1/my-restaurants | jq</code>
   </p>
 
   <p class="my-5">
