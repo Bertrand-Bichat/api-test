@@ -2,8 +2,14 @@
   <h1 class="text-center my-5">Gestion de restaurants par API</h1>
   <h2 class="text-left">Documentation technique de la V1</h2>
   <% if current_user  %>
-    <p class="text-left mt-3 font-weight-bold">Votre token d'authentification d'API : <%= current_user.authentication_token %></p>
+    <p class="text-left mt-3 font-weight-bold">Votre token d'authentification API : <%= current_user.authentication_token %></p>
   <% end %>
+
+  <p class="my-5">
+    Créez-vous un compte et sauvegardez l'adresse mail liée à votre compte, ainsi que votre clé d'authentification API.
+    <br>
+    Vous trouverez ci-dessous les lignes de commande permettant d'intéragir avec l'API de ce site.
+  </p>
 
   <p class="my-5">
     Voir l'index de tous les restaurants :
