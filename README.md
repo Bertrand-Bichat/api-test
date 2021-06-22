@@ -1,4 +1,4 @@
-Gestion de restaurants via des appels API (Ruby on Rails) : https://api-test-website.herokuapp.com/
+Gestion de restaurants via des appels API REST FULL (Ruby on Rails) : https://api-test-website.herokuapp.com/
 
 # Documentation technique de la V1
 
