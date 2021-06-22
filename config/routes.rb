@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # API
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :restaurants, only: [ :index, :show, :update, :create, :destroy ]
+      resources :restaurants, only: [ :index, :show, :update, :create, :destroy ] do
+        resources :comments, only: [ :create ]
+      end
+      resources :comments, only: [ :show, :update, :destroy ]
     end
   end
 

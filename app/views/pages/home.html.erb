@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center my-5">Gestion de restaurants par API</h1>
+  <h1 class="text-center my-5">Gestion de restaurants & commentaires par API</h1>
   <h2 class="text-left">Documentation technique de la V1</h2>
   <% if current_user  %>
     <p class="text-left mt-3 font-weight-bold">Votre token d'authentification API : <%= current_user.authentication_token %></p>
@@ -10,6 +10,8 @@
     <br>
     Vous trouverez ci-dessous les lignes de commande permettant d'intéragir avec l'API de ce site.
   </p>
+
+  <h3 class="text-left">Restaurants</h3>
 
   <p class="my-5">
     Voir l'index de tous les restaurants :
@@ -65,5 +67,57 @@
        -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
        <br>
        https://api-test-website.herokuapp.com/api/v1/restaurants/1</code>
+  </p>
+
+  <h3 class="text-left">Commentaires</h3>
+
+  <p class="my-5">
+    Voir la show du commentaire dont l'id = 1 :
+    <br>
+    <code>curl -s https://api-test-website.herokuapp.com/api/v1/comments/1 | jq</code>
+  </p>
+
+  <p class="my-5">
+    Create d'un commentaire avec une note de 5 pour le restaurant dont l'id = 1 :
+    <br>
+    <code>curl -i -X POST                                        \
+      <br>
+       -H 'Content-Type: application/json'              \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       -d '{ "comment": { "content": "New content", "rating": 5 } }'    \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/restaurants/1/comments</code>
+  </p>
+
+  <p class="my-5">
+    Update du commentaire que vous avez créé et dont l'id = 1 :
+    <br>
+    <code>curl -i -X PATCH                                        \
+      <br>
+       -H 'Content-Type: application/json'              \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       -d '{ "comment": { "content": "New content", "rating": 2 } }'    \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/comments/1</code>
+  </p>
+
+  <p class="my-5">
+    Destroy du commentaire que vous avez créé et dont l'id = 1 :
+    <br>
+    <code>curl -i -X DELETE                                        \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/comments/1</code>
   </p>
 </div>
