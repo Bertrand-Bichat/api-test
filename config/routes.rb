@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         resources :comments, only: [ :create ]
       end
       resources :comments, only: [ :show, :update, :destroy ]
+      get '/my-restaurants', to: 'restaurants#my_restaurants', as: :my_restaurants
     end
   end
 

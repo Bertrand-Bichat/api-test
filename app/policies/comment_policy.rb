@@ -14,10 +14,10 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user if user_loggedin?
   end
 
   def destroy?
-    record.user == user
+    record.user == user if user_loggedin?
   end
 end

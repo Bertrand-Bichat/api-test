@@ -13,6 +13,13 @@ Voir l'index de tous les restaurants :
 Voir la show du restaurant dont l'id = 1 et tous ses commentaires associés :
 `curl -s https://api-test-website.herokuapp.com/api/v1/restaurants/1 | jq`
 
+Voir l'index de tous les restaurants que vous avez créé :
+`curl -i -X GET
+-H 'Content-Type: application/json' \
+-H 'X-User-Email: YOUR EMAIL' \
+-H 'X-User-Token: YOUR AUTHENTICATION TOKEN' \
+https://api-test-website.herokuapp.com/api/v1/my-restaurants`
+
 Create d'un restaurant :
 `curl -i -X POST \
 -H 'Content-Type: application/json' \

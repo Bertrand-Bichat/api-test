@@ -26,6 +26,20 @@
   </p>
 
   <p class="my-5">
+    Voir l'index de tous les restaurants que vous avez créé :
+    <br>
+    <code>curl -i -X GET
+      <br>
+       -H 'Content-Type: application/json'              \
+       <br>
+       -H 'X-User-Email: YOUR EMAIL'               \
+       <br>
+       -H 'X-User-Token: YOUR AUTHENTICATION TOKEN'          \
+       <br>
+       https://api-test-website.herokuapp.com/api/v1/my-restaurants</code>
+  </p>
+
+  <p class="my-5">
     Create d'un restaurant :
     <br>
     <code>curl -i -X POST                                        \

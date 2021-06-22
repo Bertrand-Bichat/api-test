@@ -3,7 +3,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   before_action :set_restaurant, only: [:show, :update, :destroy]
 
   def index
-    @restaurants = policy_scope(Restaurant)
+    @restaurants = policy_scope(Restaurant).order(id: :asc)
   end
 
   def show
@@ -31,6 +31,17 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   def destroy
     @restaurant.destroy
     head :no_content
+  end
+
+  def my_restaurants
+    @restaurants = policy_scope(Restaurant).where(user: current_user).order(id: :asc)
+    @restaurant = @restaurants.first
+    if @restaurant.present?
+      authorize @restaurant
+    else
+      authorize policy_scope(Restaurant).first
+      render :index
+    end
   end
 
   private
